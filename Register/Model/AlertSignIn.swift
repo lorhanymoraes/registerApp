@@ -10,5 +10,6 @@ import Foundation
 enum AlertSignIn {
     case successLogin
     case generalError
-    case wrongData
+    case noEmail
+    case noPassword
 }

@@ -23,6 +23,7 @@
 		0D36AC00292C630E006B244C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D36ABFF292C630E006B244C /* GoogleService-Info.plist */; };
 		0D36AC04292D5761006B244C /* AlertRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D36AC03292D5760006B244C /* AlertRegister.swift */; };
 		0D36AC07292D65AA006B244C /* AlertSignIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D36AC06292D65AA006B244C /* AlertSignIn.swift */; };
+		0DFDE2F42932A2CC00BEF77E /* RegisterError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DFDE2F32932A2CC00BEF77E /* RegisterError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		0D36ABFF292C630E006B244C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0D36AC03292D5760006B244C /* AlertRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertRegister.swift; sourceTree = "<group>"; };
 		0D36AC06292D65AA006B244C /* AlertSignIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSignIn.swift; sourceTree = "<group>"; };
+		0DFDE2F32932A2CC00BEF77E /* RegisterError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RegisterError.swift; path = Register/Presenters/RegisterError.swift; sourceTree = SOURCE_ROOT; };
 		1BE6E51197A7196B46534466 /* Pods-Register.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Register.debug.xcconfig"; path = "Target Support Files/Pods-Register/Pods-Register.debug.xcconfig"; sourceTree = "<group>"; };
 		621CADD5A78504E275AD2140 /* Pods-Register.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Register.release.xcconfig"; path = "Target Support Files/Pods-Register/Pods-Register.release.xcconfig"; sourceTree = "<group>"; };
 		CA09A6A5E635E8847C8479CD /* Pods_Register.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Register.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				0D36ABE7292C3667006B244C /* Info.plist */,
 				0D36ABDB292C3665006B244C /* SceneDelegate.swift */,
 				0D36ABDF292C3665006B244C /* Main.storyboard */,
+				0D36AC05292D583A006B244C /* Model */,
 				0D36ABF6292C5E46006B244C /* Resources */,
 				0D36ABF7292C5EAD006B244C /* Controllers */,
 				0D36ABF8292C5EB9006B244C /* Presenters */,
@@ -118,7 +121,6 @@
 				0D36ABDD292C3665006B244C /* InitialViewController.swift */,
 				0D36ABF2292C57C3006B244C /* SignInViewController.swift */,
 				0D36ABF4292C57D8006B244C /* RegisterViewController.swift */,
-				0D36AC05292D583A006B244C /* Model */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -135,6 +137,7 @@
 		0D36AC05292D583A006B244C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0DFDE2F32932A2CC00BEF77E /* RegisterError.swift */,
 				0D36AC03292D5760006B244C /* AlertRegister.swift */,
 				0D36AC06292D65AA006B244C /* AlertSignIn.swift */,
 			);
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D36ABFC292C5F04006B244C /* SignInViewPresenter.swift in Sources */,
+				0DFDE2F42932A2CC00BEF77E /* RegisterError.swift in Sources */,
 				0D36ABF3292C57C3006B244C /* SignInViewController.swift in Sources */,
 				0D36AC07292D65AA006B244C /* AlertSignIn.swift in Sources */,
 				0D36ABF5292C57D8006B244C /* RegisterViewController.swift in Sources */,

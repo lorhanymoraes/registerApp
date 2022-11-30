@@ -10,7 +10,6 @@ import FirebaseAuth
 
 class RegisterViewController: UIViewController {
     
-    var auth: Auth?
     var registerViewPresenter = RegisterViewPresenter()
     
     @IBOutlet var tfName: UITextField!
@@ -18,12 +17,17 @@ class RegisterViewController: UIViewController {
     @IBOutlet var tfPhone: UITextField!
     @IBOutlet var tfEmail: UITextField!
     @IBOutlet var tfPassword: UITextField!
+    @IBOutlet var btnSignIn2: UIButton!
+    @IBOutlet var loading: UIActivityIndicatorView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.auth = Auth.auth()
         self.registerViewPresenter.delegate = self
+        btnSignIn2.layer.cornerRadius = 6
+        loading.isHidden = true
     }
+    
     
     
     func alertMessage(type: AlertRegister) {
@@ -37,6 +41,27 @@ class RegisterViewController: UIViewController {
         case .registerError:
             title = "Warning"
             message = "Failed to register"
+        case .noName:
+            title = "Warning"
+            message = "Fill in the name field"
+        case .noBusinessName:
+            title = "Warning"
+            message = "Fill in the business name field"
+        case .noPhone:
+            title = "Warning"
+            message = "Fill in the phone field"
+        case .noEmail:
+            title = "Warning"
+            message = "Fill in the email field"
+        case .noPassword:
+            title = "Warning"
+            message = "Fill in the password field"
+        case .wrongEmail:
+            title = "Warning"
+            message = "Email field must have the following format: example@emailadress.com"
+        case .wrongPassword:
+            title = "Warning"
+            message = "Password must contain at least 6 characters"
         }
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -47,15 +72,45 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func tappedRegisterBtn(_ sender: UIButton) {
-        
+        loading.startAnimating()
         let email = tfEmail.text ?? ""
         let password = tfPassword.text ?? ""
         registerViewPresenter.registerAuth(email: email, password: password)
         
+        if !tfName.hasText {
+            alertMessage(type: .noName)
+        }
+        if !tfBusinessName.hasText {
+            alertMessage(type: .noBusinessName)
+        }
+        if !tfPhone.hasText {
+            alertMessage(type: .noPhone)
+        }
+        if !tfEmail.hasText {
+            alertMessage(type: .noEmail)
+        }
+        
+        if !registerViewPresenter.validateEmail(email: tfEmail.text ?? "") {
+            alertMessage(type: .wrongEmail)
+        }
+        
+        if !tfPassword.hasText {
+            alertMessage(type: .noPassword)
+        }
+        if tfPassword.text?.count ?? 0 < 6 {
+            alertMessage(type: .wrongPassword)
+        }
     }
 }
 
 extension RegisterViewController: RegisterViewPresenterDelegate {
+    
+    
+    func stopAnimating() {
+        loading.stopAnimating()
+    }
+    
+    
     func showAlert(type: AlertRegister) {
         alertMessage(type: type)
     }

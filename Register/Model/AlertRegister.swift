@@ -10,4 +10,11 @@ import Foundation
 enum AlertRegister {
     case registerError
     case sucessRegister
+    case noName
+    case noBusinessName
+    case noPhone
+    case noEmail
+    case wrongEmail
+    case noPassword
+    case wrongPassword
 }
