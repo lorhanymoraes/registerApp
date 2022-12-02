@@ -11,5 +11,7 @@ enum AlertSignIn {
     case successLogin
     case generalError
     case noEmail
+    case wrongEmail
     case noPassword
+    case wrongPassword
 }

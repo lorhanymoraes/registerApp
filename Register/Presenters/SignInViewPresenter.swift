@@ -18,6 +18,12 @@ class SignInViewPresenter {
     var delegate: SignInViewPresenterDelegate?
     var auth: Auth?
     
+    func validateEmail (email: String)-> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,20}"
+        let validateRegex = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return validateRegex.evaluate(with: email)
+    }
+    
     func signInAuth(email: String, password: String) {
         self.auth = Auth.auth()
         self.auth?.signIn(withEmail: email, password: password, completion: { (usuario, error) in

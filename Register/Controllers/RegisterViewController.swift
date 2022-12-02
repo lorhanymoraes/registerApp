@@ -28,8 +28,6 @@ class RegisterViewController: UIViewController {
         loading.isHidden = true
     }
     
-    
-    
     func alertMessage(type: AlertRegister) {
         let title: String, message: String
         
@@ -71,8 +69,9 @@ class RegisterViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func tappedRegisterBtn(_ sender: UIButton) {
+    @IBAction func tappedRegisterBtn(_ sender: Any) {
         loading.startAnimating()
+        loading.isHidden = false
         let email = tfEmail.text ?? ""
         let password = tfPassword.text ?? ""
         registerViewPresenter.registerAuth(email: email, password: password)
@@ -105,9 +104,9 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController: RegisterViewPresenterDelegate {
     
-    
     func stopAnimating() {
         loading.stopAnimating()
+        loading.isHidden = true
     }
     
     

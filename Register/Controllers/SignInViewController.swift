@@ -43,6 +43,12 @@ class SignInViewController: UIViewController {
         case .successLogin:
             title = "Welcome"
             message = "Successful login"
+        case .wrongEmail:
+            title = "Warning"
+            message = "Email field must have the following format: example@emailadress.com"
+        case .wrongPassword:
+            title = "Warning"
+            message = "Password must contain at least 6 characters"
         }
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -62,9 +68,18 @@ class SignInViewController: UIViewController {
             alertMessage(type: .noEmail)
         }
         
+        if !signInViewPresenter.validateEmail(email: tfEmail.text ?? " ") {
+            alertMessage(type: .wrongEmail)
+        }
+        
         if !tfPassword.hasText {
             alertMessage(type: .noPassword)
         }
+        
+        if tfPassword.text?.count ?? 0 < 6 {
+            alertMessage(type: .wrongPassword)
+        }
+        
     }
 }
 

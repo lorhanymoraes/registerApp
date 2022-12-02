@@ -27,7 +27,7 @@ class RegisterViewPresenter {
     
     func registerAuth(email: String, password: String) {
         self.auth = Auth.auth()
-        self.auth?.createUser(withEmail: email, password: password, completion: { [self] (result, error) in
+        self.auth?.createUser(withEmail: email, password: password, completion: { (result, error) in
             
             if error != nil {
                 self.delegate?.showAlert(type: .registerError)
